@@ -1,59 +1,102 @@
-# EnterpriseEmployeePortal
+🏢 Enterprise Employee Portal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.2.
+A modern, scalable, and responsive Enterprise Employee Portal built with Angular. Designed to streamline workforce management, deliver real-time data insights, and provide role-based dashboards for administrators and staff.
 
-## Development server
+🌟 Key Features
 
-To start a local development server, run:
+📊 Interactive Dashboards: Real-time analytics, metrics overview, and visual data representations.
 
-```bash
+👥 Employee Management: Comprehensive CRUD operations for managing personnel profiles, departments, and roles.
+
+🔐 Role-Based Access Control (RBAC): Secure routing and customized views for standard employees versus administrative staff.
+
+⚡ High Performance: Optimized state management and fast rendering leveraging Angular's reactive architecture.
+
+🎨 Modern UI/UX: Clean, accessible, and fully responsive layout that adapts seamlessly across desktop, tablet, and mobile devices.
+
+🛠️ Tech Stack
+
+Frontend Framework: Angular (v17+)
+
+Language: TypeScript
+
+Styling: CSS / SCSS / Tailwind CSS
+
+Icons & UI Enhancements: Modern component libraries
+
+🚀 Getting Started
+
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+
+Prerequisites
+
+Make sure you have the following installed on your system:
+
+Node.js (v18+ recommended): Download Node.js
+
+Angular CLI: Install globally via npm if you haven't already:
+
+npm install -g @angular/cli
+
+
+Installation & Running Locally
+
+Clone the repository:
+
+git clone https://github.com/KomalYadav1801/Enterprise-Employee-Portal.git
+
+
+Navigate to the project directory:
+
+cd Enterprise-Employee-Portal
+
+
+Install dependencies:
+
+npm install
+
+
+Run the development server:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+Open in your browser:
+Navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+📁 Project Structure
 
-```bash
-ng generate component component-name
-```
+Enterprise-Employee-Portal/
+├── src/
+│   ├── app/
+│   │   ├── components/    # Reusable UI components (Navbar, Sidebar, Cards)
+│   │   ├── dashboards/    # Admin and Employee dashboard views
+│   │   ├── services/      # API communication and state services
+│   │   ├── models/        # TypeScript interfaces and types
+│   │   └── app.routes.ts  # Application routing configuration
+│   ├── assets/            # Images, icons, and static files
+│   ├── index.html         # Root HTML file
+│   └── styles.scss        # Global styles
+├── angular.json
+├── package.json
+└── tsconfig.json
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+🤝 Contributing
 
-## Building
+Contributions, issues, and feature requests are welcome!
+Feel free to check the issues page.
 
-To build the project run:
+Fork the Project
 
-```bash
-ng build
-```
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Commit your Changes (git commit -m 'Add some AmazingFeature')
 
-## Running unit tests
+Push to the Branch (git push origin feature/AmazingFeature)
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Open a Pull Request
 
-```bash
-ng test
-```
+📝 License
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Distributed under the MIT License. See LICENSE for more information.
