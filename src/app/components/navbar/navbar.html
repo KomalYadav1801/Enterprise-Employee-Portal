@@ -1,0 +1,42 @@
+<nav class="top-navbar">
+
+    <!-- Search -->
+    <div class="search-box">
+
+        <i class="fas fa-search"></i>
+
+        <input
+            type="text"
+            placeholder="Search pages..."
+            [(ngModel)]="searchText"
+            (keyup.enter)="searchPage()">
+
+    </div>
+
+    <!-- Right Side -->
+    <div class="nav-right">
+
+        <!-- Notification -->
+        <div class="notification">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+        </div>
+
+        <!-- Profile -->
+        <div class="profile" (click)="goToAdmin()">
+
+    <div class="avatar">
+        <i class="fas fa-user"></i>
+    </div>
+
+    <div class="profile-info">
+        <span class="name">Admin</span>
+        <small>Administrator</small>
+    </div>
+
+    <i class="fas fa-chevron-down arrow"></i>
+
+</div>
+    </div>
+
+</nav>

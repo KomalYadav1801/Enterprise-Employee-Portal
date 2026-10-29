@@ -1,0 +1,184 @@
+/* ==========================================
+   CHART GRID
+========================================== */
+
+.chart-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+    margin-top:25px;
+}
+
+/* ==========================================
+   ANALYTICS CARD
+========================================== */
+
+.analytics-card{
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:all .3s ease;
+    overflow:hidden;
+}
+
+.analytics-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.analytics-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.analytics-header h2{
+    margin:0;
+    font-size:22px;
+    font-weight:600;
+    color:#1f2937;
+}
+
+.analytics-header select{
+    padding:10px 16px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    background:#ffffff;
+    color:#374151;
+    outline:none;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.analytics-header select:hover{
+    border-color:#2563eb;
+}
+
+.analytics-header select:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+/* ==========================================
+   CHART AREA
+========================================== */
+
+.chart-box{
+    position:relative;
+    width:100%;
+    height:360px;
+}
+
+.chart-box canvas{
+    width:100% !important;
+    height:100% !important;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#94a3b8;
+}
+
+/* ==========================================
+   DARK MODE
+========================================== */
+
+:host-context(body.dark-theme) .analytics-card{
+    background:#1f2937;
+    border:1px solid #374151;
+    box-shadow:0 10px 25px rgba(0,0,0,.45);
+}
+
+:host-context(body.dark-theme) .analytics-header h2{
+    color:#ffffff;
+}
+
+:host-context(body.dark-theme) .analytics-header select{
+    background:#2b3442;
+    color:#ffffff;
+    border:1px solid #4b5563;
+}
+
+:host-context(body.dark-theme) .analytics-header select:hover{
+    border-color:#3b82f6;
+}
+
+:host-context(body.dark-theme) .analytics-header select:focus{
+    box-shadow:0 0 0 3px rgba(59,130,246,.25);
+}
+
+:host-context(body.dark-theme) .chart-box{
+    background:transparent;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+    .chart-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .analytics-card{
+        padding:20px;
+    }
+
+    .analytics-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .analytics-header h2{
+        font-size:20px;
+    }
+
+    .analytics-header select{
+        width:100%;
+    }
+
+    .chart-box{
+        height:300px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .analytics-card{
+        padding:15px;
+    }
+
+    .analytics-header h2{
+        font-size:18px;
+    }
+
+    .chart-box{
+        height:250px;
+    }
+
+}

@@ -1,0 +1,531 @@
+/* ===========================
+   GLOBAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    
+    
+}
+
+:host{
+    display:block;
+    width:80%;
+    min-height:100vh;
+    padding:30px;
+    background:#f4f7fc;
+    overflow-x:hidden;
+}
+/* ===========================
+   HEADER
+=========================== */
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.page-header h2{
+    font-size:38px;
+    color:#1e293b;
+    font-weight:700;
+}
+
+.page-header p{
+    margin-top:5px;
+    color:#64748b;
+}
+
+
+.add-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   STATS
+=========================== */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.stat-card{
+    padding:28px;
+    border-radius:18px;
+    color:white;
+    box-shadow:0 12px 30px rgba(0,0,0,.10);
+    transition:.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-6px);
+}
+
+.blue{
+    background:linear-gradient(135deg,#2563eb,#60a5fa);
+}
+
+.green{
+    background:linear-gradient(135deg,#16a34a,#4ade80);
+}
+
+.orange{
+    background:linear-gradient(135deg,#ea580c,#fb923c);
+}
+
+.red{
+    background:linear-gradient(135deg,#dc2626,#f87171);
+}
+
+.stat-card h3{
+    font-size:16px;
+    font-weight:500;
+}
+
+.stat-card h1{
+    font-size:42px;
+    margin:15px 0;
+}
+
+/* ===========================
+   TOOLBAR
+=========================== */
+
+.toolbar{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr auto auto;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.toolbar input,
+.toolbar select{
+    width:100%;
+    height:50px;
+    padding:0 15px;
+    border:1px solid #d6d6d6;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+}
+
+.toolbar input:focus,
+.toolbar select:focus{
+    border-color:#2563eb;
+}
+
+.reset-btn,
+.export-btn{
+    height:50px;
+    padding:0 24px;
+    border:none;
+    border-radius:10px;
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.reset-btn{
+    background:#64748b;
+}
+
+.export-btn{
+    background:#16a34a;
+}
+
+/* ===========================
+   FORM
+=========================== */
+
+.employee-form{
+    background:white;
+    padding:28px;
+    border-radius:18px;
+    margin-bottom:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.employee-form h3{
+    margin-bottom:25px;
+    font-size:30px;
+    color:#1e293b;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+}
+
+.form-grid input,
+.form-grid select{
+    width:100%;
+    height:50px;
+    padding:0 15px;
+    border:1px solid #d6d6d6;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+}
+
+.form-grid input:focus,
+.form-grid select:focus{
+    border-color:#2563eb;
+}
+
+.form-grid button{
+    width:100%;
+    height:50px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.form-grid button:hover{
+    background:#1d4ed8;
+}
+
+/* ===========================
+   TABLE
+=========================== */
+
+.table-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.table-responsive{
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scrollbar-width:thin;
+}
+
+table{
+    min-width:1400px;   /* ya 1500px agar aur columns hain */
+    width:100%;
+    border-collapse:collapse;
+}
+
+
+thead{
+    background:#2563eb;
+}
+
+th{
+    color:white;
+    padding:18px;
+    text-align:left;
+    white-space:nowrap;
+    font-weight:600;
+}
+
+td{
+    padding:18px;
+    border-bottom:1px solid #ececec;
+    white-space:nowrap;
+}
+
+tbody tr:hover{
+    background:#f8fafc;
+}
+
+/* ===========================
+   EMPLOYEE
+=========================== */
+
+.emp-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+
+.emp-info strong{
+    color:#1e293b;
+}
+
+/* ===========================
+   STATUS
+=========================== */
+
+.active,
+.leave,
+.inactive{
+    padding:6px 16px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.active{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.leave{
+    background:#fef3c7;
+    color:#b45309;
+}
+
+.inactive{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+/* ===========================
+   ACTION BUTTONS
+=========================== */
+
+.view,
+.edit,
+.delete{
+
+    width:38px;
+    height:38px;
+
+    border:none;
+    border-radius:8px;
+
+    color:white;
+
+    cursor:pointer;
+
+    margin-right:6px;
+
+    transition:.3s;
+
+}
+
+.view{
+    background:#3b82f6;
+}
+
+.edit{
+    background:#f59e0b;
+}
+
+.delete{
+    background:#ef4444;
+}
+
+.view:hover,
+.edit:hover,
+.delete:hover{
+    transform:scale(1.08);
+}
+
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1200px){
+
+.toolbar{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+:host{
+padding:15px;
+}
+
+.page-header{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.stats-grid{
+grid-template-columns:1fr;
+}
+
+.form-grid{
+grid-template-columns:1fr;
+}
+
+.employee-form{
+padding:20px;
+}
+
+.employee-form h3{
+font-size:24px;
+}
+
+}
+/* ===========================
+        DARK MODE
+=========================== */
+
+:host-context(.dark-theme){
+
+    display:block;
+    width:80%;
+    min-height:100vh;
+    padding:30px;
+    background:#0f172a;
+
+}
+
+/* Page */
+
+:host-context(.dark-theme) .page-header h2{
+    color:#ffffff;
+}
+
+:host-context(.dark-theme) .page-header p{
+    color:#94a3b8;
+}
+
+/* Toolbar */
+
+:host-context(.dark-theme) .toolbar input,
+:host-context(.dark-theme) .toolbar select{
+
+    background:#1e293b;
+    color:#ffffff;
+    border:1px solid #334155;
+
+}
+
+:host-context(.dark-theme) .toolbar input::placeholder{
+    color:#94a3b8;
+}
+
+/* Employee Form */
+
+:host-context(.dark-theme) .employee-form{
+
+    background:#1e293b;
+    border:1px solid #334155;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+:host-context(.dark-theme) .employee-form h3{
+    color:#ffffff;
+}
+
+:host-context(.dark-theme) .form-grid input,
+:host-context(.dark-theme) .form-grid select{
+
+    background:#334155;
+    color:#ffffff;
+    border:1px solid #475569;
+
+}
+
+:host-context(.dark-theme) .form-grid input::placeholder{
+    color:#94a3b8;
+}
+
+/* Table */
+
+:host-context(.dark-theme) .table-card{
+
+    background:#1e293b;
+    border:1px solid #334155;
+
+}
+
+:host-context(.dark-theme) table{
+
+    background:#1e293b;
+
+}
+
+:host-context(.dark-theme) thead{
+
+    background:#2563eb;
+
+}
+
+:host-context(.dark-theme) th{
+
+    color:#ffffff;
+
+}
+
+:host-context(.dark-theme) td{
+
+    color:#ffffff;
+    border-bottom:1px solid #334155;
+
+}
+
+/* Uniform row colours */
+
+:host-context(.dark-theme) tbody tr{
+
+    background:#1e293b !important;
+
+}
+
+:host-context(.dark-theme) tbody tr:nth-child(even){
+
+    background:#1e293b !important;
+
+}
+
+:host-context(.dark-theme) tbody tr:nth-child(odd){
+
+    background:#1e293b !important;
+
+}
+
+:host-context(.dark-theme) tbody tr:hover{
+
+    background:#334155 !important;
+
+}
+
+/* Employee Name */
+
+:host-context(.dark-theme) .emp-info strong{
+
+    color:#ffffff;
+
+}
+
+/* Status */
+
+:host-context(.dark-theme) .active{
+
+    background:#dcfce7;
+    color:#15803d;
+
+}
+
+:host-context(.dark-theme) .leave{
+
+    background:#fef3c7;
+    color:#b45309;
+
+}
+
+:host-context(.dark-theme) .inactive{
+
+    background:#fee2e2;
+    color:#dc2626;
+
+}

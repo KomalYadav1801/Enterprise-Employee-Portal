@@ -1,0 +1,1000 @@
+/* ===========================================================
+   HRMS REPORTS DASHBOARD
+   PART 1 - GLOBAL + HEADER + KPI CARDS
+=========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#eef3f9;
+}
+
+/* ===========================================================
+   REPORT CONTAINER
+=========================================================== */
+
+.reports-container{
+    min-height:100vh;
+    padding:35px;
+    background:#f4f7fc;
+    animation:fadeIn .6s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ===========================================================
+   HEADER
+=========================================================== */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.header h2{
+    font-size:42px;
+    color:#1e293b;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#64748b;
+    font-size:16px;
+    line-height:1.6;
+}
+
+/* ===========================================================
+   BUTTONS
+=========================================================== */
+
+.header-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.header-buttons button{
+    border:none;
+    padding:13px 24px;
+    border-radius:12px;
+    color:#fff;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.35s;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.pdf-btn{
+    background:linear-gradient(135deg,#ef4444,#dc2626);
+}
+
+.excel-btn{
+    background:linear-gradient(135deg,#10b981,#059669);
+}
+
+.print-btn{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+}
+
+.header-buttons button:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 25px rgba(0,0,0,.15);
+}
+
+.header-buttons button:active{
+    transform:scale(.96);
+}
+
+/* ===========================================================
+   KPI CARDS GRID
+=========================================================== */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-bottom:35px;
+}
+
+/* ===========================================================
+   CARD
+=========================================================== */
+
+.card{
+    position:relative;
+    background:#fff;
+    border-radius:22px;
+    padding:30px;
+    text-align:center;
+    overflow:hidden;
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    transition:
+    transform .35s,
+    box-shadow .35s;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:linear-gradient(90deg,#2563eb,#60a5fa);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+    0 25px 40px rgba(37,99,235,.18);
+}
+
+/* ===========================================================
+   ICON
+=========================================================== */
+
+.icon{
+    width:80px;
+    height:80px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:42px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(135deg,#dbeafe,#eff6ff);
+
+    margin-bottom:20px;
+
+    transition:.35s;
+}
+
+.card:hover .icon{
+    transform:rotate(10deg) scale(1.08);
+}
+
+/* ===========================================================
+   CARD NUMBER
+=========================================================== */
+
+.card h3{
+    font-size:36px;
+    color:#2563eb;
+    margin-bottom:10px;
+    font-weight:700;
+}
+
+.card p{
+    color:#64748b;
+    font-size:17px;
+}
+
+/* ===========================================================
+   GROWTH BADGE
+=========================================================== */
+
+.growth{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:20px;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+    font-weight:600;
+}
+
+.positive{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.negative{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+/* ===========================================================
+   CARD COLORS
+=========================================================== */
+
+.card:nth-child(1)::before{
+    background:linear-gradient(90deg,#2563eb,#60a5fa);
+}
+
+.card:nth-child(2)::before{
+    background:linear-gradient(90deg,#10b981,#34d399);
+}
+
+.card:nth-child(3)::before{
+    background:linear-gradient(90deg,#f59e0b,#fbbf24);
+}
+
+.card:nth-child(4)::before{
+    background:linear-gradient(90deg,#8b5cf6,#a78bfa);
+}
+
+/* ===========================================================
+   CARD ANIMATION
+=========================================================== */
+
+.card{
+    animation:cardFade .7s ease;
+}
+
+@keyframes cardFade{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media(max-width:992px){
+
+.header{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.header h2{
+font-size:34px;
+}
+
+}
+
+@media(max-width:768px){
+
+.reports-container{
+padding:20px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.header-buttons{
+width:100%;
+}
+
+.header-buttons button{
+flex:1;
+justify-content:center;
+}
+
+}
+
+@media(max-width:480px){
+
+.header h2{
+font-size:28px;
+}
+
+.card{
+padding:22px;
+}
+
+.icon{
+width:65px;
+height:65px;
+font-size:32px;
+}
+
+.card h3{
+font-size:28px;
+}
+
+}
+/* ===========================================================
+   PART 2 - CHARTS + DEPARTMENT + MONTHLY SUMMARY
+=========================================================== */
+
+/* =======================
+   CHART GRID
+======================= */
+
+.chart-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
+    margin-bottom:35px;
+}
+
+.chart-card{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.chart-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px rgba(37,99,235,.15);
+}
+
+.chart-card h3{
+    font-size:24px;
+    margin-bottom:30px;
+    color:#1e293b;
+    font-weight:700;
+}
+
+/* =======================
+   BAR CHART
+======================= */
+
+.bars{
+    height:260px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.bar{
+    flex:1;
+    position:relative;
+    border-radius:12px 12px 0 0;
+    background:linear-gradient(180deg,#60a5fa,#2563eb);
+    animation:growBar 1.2s ease;
+    transition:.35s;
+}
+
+.bar:hover{
+    transform:scaleY(1.05);
+    filter:brightness(1.1);
+}
+
+.bar span{
+    position:absolute;
+    bottom:-30px;
+    width:100%;
+    text-align:center;
+    font-weight:600;
+    color:#64748b;
+}
+
+/* Heights */
+
+.jan{height:90px;}
+.feb{height:120px;}
+.mar{height:170px;}
+.apr{height:145px;}
+.may{height:210px;}
+.jun{height:245px;}
+
+@keyframes growBar{
+
+from{
+transform:scaleY(0);
+transform-origin:bottom;
+}
+
+to{
+transform:scaleY(1);
+}
+
+}
+
+/* =======================
+   ATTENDANCE CIRCLE
+======================= */
+
+.attendance-circle{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:260px;
+}
+
+.circle{
+    width:210px;
+    height:210px;
+    border-radius:50%;
+    background:
+    conic-gradient(
+        #2563eb 96%,
+        #e5e7eb 4%
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    color:#2563eb;
+    font-weight:700;
+
+    box-shadow:
+    0 12px 30px rgba(37,99,235,.20);
+
+    animation:zoomCircle .8s ease;
+}
+
+.circle h2{
+    font-size:40px;
+}
+
+.circle p{
+    color:#64748b;
+    margin-top:6px;
+}
+
+@keyframes zoomCircle{
+
+from{
+transform:scale(.5);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+/* =======================
+   DEPARTMENT
+======================= */
+
+.department-card{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.department-card:hover{
+    transform:translateY(-5px);
+}
+
+.department-card h3{
+    font-size:24px;
+    color:#1e293b;
+    margin-bottom:25px;
+}
+
+.department{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight:600;
+    color:#334155;
+}
+
+.progress{
+    width:100%;
+    height:12px;
+    border-radius:30px;
+    background:#e5e7eb;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    border-radius:30px;
+    animation:fillBar 2s ease;
+}
+
+.fill1{
+    width:90%;
+    background:#2563eb;
+}
+
+.fill2{
+    width:45%;
+    background:#10b981;
+}
+
+.fill3{
+    width:60%;
+    background:#f59e0b;
+}
+
+.fill4{
+    width:75%;
+    background:#8b5cf6;
+}
+
+@keyframes fillBar{
+
+from{
+width:0;
+}
+
+}
+
+/* =======================
+   MONTHLY SUMMARY
+======================= */
+
+.summary{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.summary:hover{
+    transform:translateY(-5px);
+}
+
+.summary h3{
+    font-size:24px;
+    margin-bottom:25px;
+    color:#1e293b;
+}
+
+.summary ul{
+    list-style:none;
+}
+
+.summary li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+    border-bottom:1px solid #e5e7eb;
+    font-size:17px;
+}
+
+.summary li:last-child{
+    border-bottom:none;
+}
+
+.summary strong{
+    color:#374151;
+}
+
+.summary span{
+    color:#2563eb;
+    font-weight:700;
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media(max-width:1100px){
+
+.chart-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.chart-card,
+.department-card,
+.summary{
+padding:22px;
+}
+
+.circle{
+width:170px;
+height:170px;
+}
+
+.circle h2{
+font-size:32px;
+}
+
+.bars{
+height:220px;
+}
+
+}
+/* ===========================================================
+   PART 3 - TABLE + ACTIVITIES + SALARY +
+            DOWNLOADS + RESPONSIVE + DARK MODE
+===========================================================*/
+
+/* ==========================
+        EMPLOYEE TABLE
+========================== */
+
+.table-card{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    overflow-x:auto;
+    transition:.35s;
+}
+
+.table-card:hover{
+    transform:translateY(-5px);
+}
+
+.table-card h3{
+    font-size:24px;
+    color:#1e293b;
+    margin-bottom:25px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:700px;
+}
+
+thead{
+    background:linear-gradient(90deg,#2563eb,#3b82f6);
+}
+
+th{
+    color:#fff;
+    padding:18px;
+    text-align:center;
+    font-size:16px;
+}
+
+td{
+    padding:18px;
+    text-align:center;
+    border-bottom:1px solid #e5e7eb;
+    color:#475569;
+}
+
+tbody tr{
+    transition:.3s;
+}
+
+tbody tr:nth-child(even){
+    background:#f8fafc;
+}
+
+tbody tr:hover{
+    background:#dbeafe;
+    transform:scale(1.01);
+}
+
+/* ==========================
+      RECENT ACTIVITIES
+========================== */
+
+.activities{
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    margin-bottom:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.activities h3{
+    margin-bottom:25px;
+    color:#1e293b;
+}
+
+.activity{
+    position:relative;
+    padding:18px 18px 18px 55px;
+    background:#f8fafc;
+    border-radius:12px;
+    margin-bottom:15px;
+    transition:.35s;
+}
+
+.activity:hover{
+    background:#e0f2fe;
+    transform:translateX(8px);
+}
+
+.activity::before{
+    content:"";
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#2563eb;
+    position:absolute;
+    left:22px;
+    top:24px;
+}
+
+/* ==========================
+      SALARY REPORT
+========================== */
+
+.salary-report{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.salary-report h3{
+    margin-bottom:25px;
+    color:#1e293b;
+}
+
+.salary-row{
+    display:flex;
+    justify-content:space-between;
+    padding:18px 0;
+    border-bottom:1px solid #e5e7eb;
+    font-size:17px;
+}
+
+.salary-row:last-child{
+    border-bottom:none;
+}
+
+.salary-row strong{
+    color:#2563eb;
+}
+
+/* ==========================
+      DOWNLOAD SECTION
+========================== */
+
+.downloads{
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.downloads h3{
+    margin-bottom:25px;
+    color:#1e293b;
+}
+
+.downloads button{
+    border:none;
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+    color:#fff;
+    padding:14px 25px;
+    border-radius:12px;
+    cursor:pointer;
+    margin:10px;
+    font-size:15px;
+    font-weight:600;
+    transition:.35s;
+}
+
+.downloads button:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 30px rgba(37,99,235,.25);
+}
+
+/* ==========================
+      SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+    height:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#e2e8f0;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:30px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#1d4ed8;
+}
+
+/* ==========================
+      RESPONSIVE
+========================== */
+
+@media(max-width:1200px){
+
+.table-card{
+overflow:auto;
+}
+
+}
+
+@media(max-width:768px){
+
+.table-card,
+.activities,
+.salary-report,
+.downloads{
+padding:20px;
+}
+
+.salary-row{
+font-size:15px;
+}
+
+.downloads button{
+width:100%;
+margin:8px 0;
+}
+
+.activity{
+padding-left:45px;
+}
+
+}
+
+@media(max-width:500px){
+
+.table-card h3,
+.activities h3,
+.salary-report h3,
+.downloads h3{
+font-size:20px;
+}
+
+}
+
+/* ==========================
+      DARK MODE
+========================== */
+
+:host-context(body.dark-theme) .reports-container{
+background:#111827;
+}
+
+:host-context(body.dark-theme) .header h2,
+:host-context(body.dark-theme) h3{
+color:#fff;
+}
+
+:host-context(body.dark-theme) .header p{
+color:#cbd5e1;
+}
+
+:host-context(body.dark-theme) .card,
+:host-context(body.dark-theme) .chart-card,
+:host-context(body.dark-theme) .department-card,
+:host-context(body.dark-theme) .summary,
+:host-context(body.dark-theme) .table-card,
+:host-context(body.dark-theme) .activities,
+:host-context(body.dark-theme) .salary-report,
+:host-context(body.dark-theme) .downloads{
+background:#1f2937;
+color:#fff;
+}
+
+:host-context(body.dark-theme) td,
+:host-context(body.dark-theme) th,
+:host-context(body.dark-theme) .salary-row,
+:host-context(body.dark-theme) .summary li{
+border-color:#374151;
+}
+
+:host-context(body.dark-theme) tbody tr:nth-child(even){
+background:#273548;
+}
+
+:host-context(body.dark-theme) tbody tr:hover{
+background:#374151;
+}
+
+:host-context(body.dark-theme) .activity{
+background:#374151;
+}
+
+:host-context(body.dark-theme) .activity:hover{
+background:#4b5563;
+}
+
+:host-context(body.dark-theme) .progress{
+background:#374151;
+}
+
+:host-context(body.dark-theme) .circle p,
+:host-context(body.dark-theme) .row,
+:host-context(body.dark-theme) td{
+color:#e5e7eb;
+}
+
+:host-context(body.dark-theme) ::-webkit-scrollbar-track{
+background:#1f2937;
+}
+
+:host-context(body.dark-theme) ::-webkit-scrollbar-thumb{
+background:#60a5fa;
+}
+
+
+/* ================= MONTHLY SUMMARY DARK MODE FIX ================= */
+
+:host-context(body.dark-theme) .summary{
+    background:#1f2937 !important;
+}
+
+:host-context(body.dark-theme) .summary h3{
+    color:#ffffff !important;
+}
+
+:host-context(body.dark-theme) .summary ul{
+    margin:0;
+    padding:0;
+}
+
+:host-context(body.dark-theme) .summary li{
+    color:#ffffff !important;
+    border-bottom:1px solid #374151 !important;
+}
+
+:host-context(body.dark-theme) .summary strong{
+    color:#f3f4f6 !important;
+    font-weight:600;
+}
+
+:host-context(body.dark-theme) .summary span{
+    color:#3b82f6 !important;
+    font-weight:700;
+}
+
+:host-context(body.dark-theme) .summary li:last-child{
+    border-bottom:none !important;
+}
+/* ==========================
+        END
+========================== */
+

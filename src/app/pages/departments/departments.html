@@ -1,0 +1,131 @@
+<div class="page-header">
+  <h2>Department Management</h2>
+  <p class="subtitle">Manage your organization's departments and department heads</p>
+</div>
+
+<!-- Toast message -->
+<div class="toast" *ngIf="message" [ngClass]="messageType">
+  {{ message }}
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-icon">🏢</div>
+    <div>
+      <div class="stat-value">{{ totalDepartments }}</div>
+      <div class="stat-label">Total Departments</div>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-icon">👤</div>
+    <div>
+      <div class="stat-value">{{ uniqueManagers }}</div>
+      <div class="stat-label">Department Managers</div>
+    </div>
+  </div>
+</div>
+
+<!-- Add form -->
+<div class="form">
+
+  <input
+    type="text"
+    placeholder="Department Name"
+    [(ngModel)]="newDepartment.name">
+
+  <input
+    type="text"
+    placeholder="Manager"
+    [(ngModel)]="newDepartment.manager">
+
+  <button (click)="addDepartment()">
+    + Add Department
+  </button>
+
+</div>
+
+<!-- Search -->
+<div class="search-bar">
+  <input
+    type="text"
+    placeholder="🔍 Search by department, manager or ID..."
+    [(ngModel)]="searchTerm">
+</div>
+
+<table *ngIf="departments.length > 0">
+
+  <thead>
+    <tr>
+      <th (click)="sortBy('id')">
+        ID <span class="sort-arrow" *ngIf="sortKey === 'id'">{{ sortAsc ? '▲' : '▼' }}</span>
+      </th>
+      <th (click)="sortBy('name')">
+        Department <span class="sort-arrow" *ngIf="sortKey === 'name'">{{ sortAsc ? '▲' : '▼' }}</span>
+      </th>
+      <th (click)="sortBy('manager')">
+        Manager <span class="sort-arrow" *ngIf="sortKey === 'manager'">{{ sortAsc ? '▲' : '▼' }}</span>
+      </th>
+      <th class="action-col">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let dept of filteredDepartments">
+
+      <ng-container *ngIf="editingId !== dept.id; else editRow">
+
+        <td>#{{ dept.id }}</td>
+        <td>{{ dept.name }}</td>
+        <td>
+          <div class="manager-cell">
+            <span class="avatar">{{ getInitials(dept.manager) }}</span>
+            {{ dept.manager }}
+          </div>
+        </td>
+
+        <td class="actions">
+          <ng-container *ngIf="deleteCandidateId !== dept.id; else confirmRow">
+            <button class="edit" (click)="startEdit(dept)">Edit</button>
+            <button class="delete" (click)="confirmDelete(dept.id)">Delete</button>
+          </ng-container>
+
+          <ng-template #confirmRow>
+            <span class="confirm-text">Delete this department?</span>
+            <button class="confirm-yes" (click)="deleteDepartment(dept.id)">Yes</button>
+            <button class="confirm-no" (click)="cancelDelete()">Cancel</button>
+          </ng-template>
+        </td>
+
+      </ng-container>
+
+      <ng-template #editRow>
+        <td>#{{ dept.id }}</td>
+        <td>
+          <input type="text" [(ngModel)]="editBuffer.name" class="edit-input">
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="editBuffer.manager" class="edit-input">
+        </td>
+        <td class="actions">
+          <button class="save" (click)="saveEdit()">Save</button>
+          <button class="cancel" (click)="cancelEdit()">Cancel</button>
+        </td>
+      </ng-template>
+
+    </tr>
+
+    <tr *ngIf="filteredDepartments.length === 0">
+      <td colspan="4" class="no-results">No departments match your search.</td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+<div class="empty" *ngIf="departments.length === 0">
+  <div class="empty-icon">📂</div>
+  No Departments Available
+</div>

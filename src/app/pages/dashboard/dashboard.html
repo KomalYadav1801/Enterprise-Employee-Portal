@@ -1,0 +1,437 @@
+<div class="dashboard">
+
+    <!-- =========================
+         Welcome Section
+    ========================== -->
+
+    <div class="welcome-card">
+
+        <div>
+            <h2>Welcome Back, {{ adminName }} 👋</h2>
+            <p>Enterprise Employee Management Dashboard</p>
+        </div>
+
+        <button class="add-btn" routerLink="/add-employee">
+            + Add Employee
+        </button>
+
+    </div>
+
+    <!-- =========================
+         Statistics
+    ========================== -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card blue">
+            <h3>Total Employees</h3>
+            <h1>{{ totalEmployees }}</h1>
+            <span>Employee Records</span>
+        </div>
+
+        <div class="stat-card green">
+            <h3>Present Today</h3>
+            <h1>{{ presentToday }}</h1>
+            <span>Attendance Today</span>
+        </div>
+
+        <div class="stat-card orange">
+            <h3>Departments</h3>
+            <h1>{{ departments.length }}</h1>
+            <span>Active Departments</span>
+        </div>
+
+        <div class="stat-card red">
+            <h3>Pending Leaves</h3>
+            <h1>{{ pendingLeaves }}</h1>
+            <span>Leave Requests</span>
+        </div>
+
+    </div>
+
+    <!-- =========================
+         Quick Access
+    ========================== -->
+
+    <h2 class="section-title">Quick Access</h2>
+
+    <div class="menu-grid">
+
+        <a routerLink="/employees" class="menu-card">
+            <span>👥</span>
+            <h4>Employees</h4>
+        </a>
+
+        <a routerLink="/departments" class="menu-card">
+            <span>🏢</span>
+            <h4>Departments</h4>
+        </a>
+
+        <a routerLink="/attendance" class="menu-card">
+            <span>📅</span>
+            <h4>Attendance</h4>
+        </a>
+
+        <a routerLink="/salary" class="menu-card">
+            <span>💰</span>
+            <h4>Payroll</h4>
+        </a>
+
+        <a routerLink="/reports" class="menu-card">
+            <span>📊</span>
+            <h4>Reports</h4>
+        </a>
+
+        <a routerLink="/projects" class="menu-card">
+            <span>📁</span>
+            <h4>Projects</h4>
+        </a>
+
+        <a routerLink="/profile" class="menu-card">
+            <span>👤</span>
+            <h4>Profile</h4>
+        </a>
+
+        <a routerLink="/settings" class="menu-card">
+            <span>⚙️</span>
+            <h4>Settings</h4>
+        </a>
+
+    </div>
+
+    <!-- =========================
+         Charts
+    ========================== -->
+
+    <app-charts></app-charts>
+
+    <!-- =========================
+         Bottom Grid
+    ========================== -->
+
+    <div class="dashboard-grid">
+
+        <!-- Recent Employees -->
+
+        <div class="card">
+
+            <h2>Recent Employees</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let emp of recentEmployees">
+
+                        <td>{{ emp.name }}</td>
+
+                        <td>{{ emp.department }}</td>
+
+                        <td>
+
+                            <span
+                                [class.active]="emp.status=='Active'"
+                                [class.inactive]="emp.status!='Active'">
+
+                                {{ emp.status }}
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Quick Actions -->
+
+        <div class="card">
+
+            <h2>Quick Actions</h2>
+
+            <button *ngFor="let action of quickActions">
+
+
+                {{ action.icon }} {{ action.title }}
+
+            </button>
+
+        </div>
+
+    </div>
+
+        <!-- ==========================================
+         EXTRA DASHBOARD
+    ========================================== -->
+
+    <div class="extra-grid">
+
+        <!-- Recent Activities -->
+
+        <div class="card">
+
+            <h2>Recent Activities</h2>
+
+            <ul class="activity-list">
+
+                <li>
+                    <span class="dot green"></span>
+                    Rahul Sharma checked in at 09:05 AM
+                </li>
+
+                <li>
+                    <span class="dot blue"></span>
+                    New employee added to HR Department
+                </li>
+
+                <li>
+                    <span class="dot orange"></span>
+                    Payroll generated successfully
+                </li>
+
+                <li>
+                    <span class="dot red"></span>
+                    Leave requests pending approval
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- Notifications -->
+
+        <div class="card">
+
+            <h2>Notifications</h2>
+
+            <ul class="notification-list">
+
+                <li>📢 Company Meeting - Friday 11:00 AM</li>
+
+                <li>🎉 Employee Birthday Tomorrow</li>
+
+                <li>💰 Salary Credited Successfully</li>
+
+                <li>📄 HR Policy Updated</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Upcoming Meetings -->
+
+        <div class="card">
+
+            <h2>Upcoming Meetings</h2>
+
+            <div class="meeting">
+                <h4>HR Weekly Meeting</h4>
+                <p>10:00 AM • Conference Room A</p>
+            </div>
+
+            <div class="meeting">
+                <h4>Project Discussion</h4>
+                <p>02:30 PM • Meeting Room B</p>
+            </div>
+
+            <div class="meeting">
+                <h4>Client Presentation</h4>
+                <p>05:00 PM • Zoom</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+         PRODUCTIVITY
+    ========================================== -->
+
+    <div class="productivity-grid">
+
+        <!-- Events -->
+
+        <div class="card">
+
+            <h2>Upcoming Events</h2>
+
+            <div class="calendar-event">
+                <h4>📅 Annual Meeting</h4>
+                <p>25 July 2026 • 10:00 AM</p>
+            </div>
+
+            <div class="calendar-event">
+                <h4>🎉 Independence Day</h4>
+                <p>15 August 2026</p>
+            </div>
+
+            <div class="calendar-event">
+                <h4>👥 Recruitment Drive</h4>
+                <p>28 August 2026</p>
+            </div>
+
+        </div>
+
+        <!-- Department Performance -->
+
+        <div class="card">
+
+            <h2>Department Performance</h2>
+
+            <div class="progress-item">
+                <span>IT Department</span>
+                <div class="progress">
+                    <div class="progress-bar blue" style="width:95%"></div>
+                </div>
+            </div>
+
+            <div class="progress-item">
+                <span>HR Department</span>
+                <div class="progress">
+                    <div class="progress-bar green" style="width:85%"></div>
+                </div>
+            </div>
+
+            <div class="progress-item">
+                <span>Finance</span>
+                <div class="progress">
+                    <div class="progress-bar orange" style="width:80%"></div>
+                </div>
+            </div>
+
+            <div class="progress-item">
+                <span>Marketing</span>
+                <div class="progress">
+                    <div class="progress-bar red" style="width:75%"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Projects -->
+
+        <div class="card">
+
+            <h2>Latest Projects</h2>
+
+            <div class="project">
+                <h4>Employee Portal</h4>
+                <p>Completed : 90%</p>
+            </div>
+
+            <div class="project">
+                <h4>Payroll Automation</h4>
+                <p>Completed : 70%</p>
+            </div>
+
+            <div class="project">
+                <h4>HR Recruitment</h4>
+                <p>Completed : 55%</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+         ENTERPRISE
+    ========================================== -->
+
+    <div class="enterprise-grid">
+
+        <!-- Top Performers -->
+
+        <div class="card">
+
+            <h2>🏆 Top Performers</h2>
+
+            <div class="performer">
+                <div>
+                    <h4>Rahul Sharma</h4>
+                    <p>Software Engineer</p>
+                </div>
+                <span>98%</span>
+            </div>
+
+            <div class="performer">
+                <div>
+                    <h4>Neha Verma</h4>
+                    <p>HR Manager</p>
+                </div>
+                <span>96%</span>
+            </div>
+
+            <div class="performer">
+                <div>
+                    <h4>Amit Singh</h4>
+                    <p>UI Designer</p>
+                </div>
+                <span>95%</span>
+            </div>
+
+        </div>
+
+        <!-- Today's Tasks -->
+
+        <div class="card">
+
+            <h2>Today's Tasks</h2>
+
+            <ul class="todo-list">
+
+                <li><input type="checkbox"> Review Leave Requests</li>
+                <li><input type="checkbox"> Team Meeting</li>
+                <li><input type="checkbox"> Generate Payroll</li>
+                <li><input type="checkbox"> Add Employee</li>
+                <li><input type="checkbox"> Update Attendance</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Company News -->
+
+        <div class="card">
+
+            <h2>Company News</h2>
+
+            <div class="news">
+                <h4>🎉 New Office Opening</h4>
+                <p>Mumbai branch opening next month.</p>
+            </div>
+
+            <div class="news">
+                <h4>🚀 Employee Portal v2</h4>
+                <p>Launching soon.</p>
+            </div>
+
+            <div class="news">
+                <h4>🏆 Employee Awards</h4>
+                <p>Next Week.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="dashboard-footer">
+
+        © 2026 Enterprise Employee Portal | Version 5.0
+
+    </footer>
+
+</div>

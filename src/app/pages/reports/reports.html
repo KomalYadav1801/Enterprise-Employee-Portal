@@ -1,0 +1,426 @@
+<div class="reports-container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div>
+            <h2>Reports Dashboard</h2>
+            <p>Monitor employee performance, attendance, payroll and company reports.</p>
+        </div>
+
+        <div class="header-buttons">
+
+            <button class="pdf-btn">
+                📄 Export PDF
+            </button>
+
+            <button class="excel-btn">
+                📊 Export Excel
+            </button>
+
+            <button class="print-btn">
+                🖨 Print
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- KPI CARDS -->
+
+    <div class="cards">
+
+        <div class="card" routerLink="/employees">
+
+            <div class="icon">👥</div>
+
+            <h3>254</h3>
+
+            <p>Total Employees</p>
+
+            <span class="growth positive">
+                ▲ 12%
+            </span>
+
+        </div>
+
+        <div class="card" routerLink="/departments">
+
+            <div class="icon">🏢</div>
+
+            <h3>18</h3>
+
+            <p>Departments</p>
+
+            <span class="growth positive">
+                ▲ 5%
+            </span>
+
+        </div>
+
+        <div class="card" routerLink="/attendance">
+
+            <div class="icon">📅</div>
+
+            <h3>96%</h3>
+
+            <p>Attendance</p>
+
+            <span class="growth positive">
+                ▲ 2%
+            </span>
+
+        </div>
+
+        <div class="card" routerLink="/salary">
+
+            <div class="icon">💰</div>
+
+            <h3>₹12,50,000</h3>
+
+            <p>Monthly Salary</p>
+
+            <span class="growth negative">
+                ▼ 1%
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- CHARTS -->
+
+    <div class="chart-grid">
+
+        <!-- Employee Growth -->
+
+        <div class="chart-card">
+
+            <h3>Employee Growth</h3>
+
+            <div class="bars">
+
+                <div class="bar jan">
+                    <span>Jan</span>
+                </div>
+
+                <div class="bar feb">
+                    <span>Feb</span>
+                </div>
+
+                <div class="bar mar">
+                    <span>Mar</span>
+                </div>
+
+                <div class="bar apr">
+                    <span>Apr</span>
+                </div>
+
+                <div class="bar may">
+                    <span>May</span>
+                </div>
+
+                <div class="bar jun">
+                    <span>Jun</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Attendance -->
+
+        <div class="chart-card">
+
+            <h3>Attendance Trend</h3>
+
+            <div class="attendance-circle">
+
+                <div class="circle">
+
+                    <h2>96%</h2>
+
+                    <p>Present</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DEPARTMENT REPORT -->
+
+    <div class="department-card">
+
+        <h3>Department Distribution</h3>
+
+        <div class="department">
+
+            <div class="row">
+
+                <span>IT Department</span>
+
+                <span>80</span>
+
+            </div>
+
+            <div class="progress">
+
+                <div class="fill fill1"></div>
+
+            </div>
+
+            <div class="row">
+
+                <span>Human Resource</span>
+
+                <span>22</span>
+
+            </div>
+
+            <div class="progress">
+
+                <div class="fill fill2"></div>
+
+            </div>
+
+            <div class="row">
+
+                <span>Finance</span>
+
+                <span>30</span>
+
+            </div>
+
+            <div class="progress">
+
+                <div class="fill fill3"></div>
+
+            </div>
+
+            <div class="row">
+
+                <span>Marketing</span>
+
+                <span>57</span>
+
+            </div>
+
+            <div class="progress">
+
+                <div class="fill fill4"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MONTHLY SUMMARY -->
+
+    <div class="summary">
+
+        <h3>Monthly Summary</h3>
+
+        <ul>
+
+            <li>
+
+                <strong>Total Employees Joined</strong>
+
+                <span>12</span>
+
+            </li>
+
+            <li>
+
+                <strong>Total Employees Left</strong>
+
+                <span>2</span>
+
+            </li>
+
+            <li>
+
+                <strong>Average Attendance</strong>
+
+                <span>96%</span>
+
+            </li>
+
+            <li>
+
+                <strong>Total Salary Paid</strong>
+
+                <span>₹12,50,000</span>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- TOP EMPLOYEES -->
+
+    <div class="table-card">
+
+        <h3>Top Performing Employees</h3>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+
+                    <th>Department</th>
+
+                    <th>Attendance</th>
+
+                    <th>Performance</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>Rahul Sharma</td>
+
+                    <td>IT</td>
+
+                    <td>99%</td>
+
+                    <td>★★★★★</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Priya Singh</td>
+
+                    <td>HR</td>
+
+                    <td>98%</td>
+
+                    <td>★★★★★</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Amit Kumar</td>
+
+                    <td>Finance</td>
+
+                    <td>97%</td>
+
+                    <td>★★★★☆</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Neha Patel</td>
+
+                    <td>Sales</td>
+
+                    <td>96%</td>
+
+                    <td>★★★★☆</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- RECENT ACTIVITIES -->
+
+    <div class="activities">
+
+        <h3>Recent Activities</h3>
+
+        <div class="activity">
+
+            🟢 Rahul Sharma joined IT Department.
+
+        </div>
+
+        <div class="activity">
+
+            💰 Monthly Salary Generated Successfully.
+
+        </div>
+
+        <div class="activity">
+
+            📅 Attendance Updated.
+
+        </div>
+
+        <div class="activity">
+
+            🏆 Employee of the Month Announced.
+
+        </div>
+
+    </div>
+
+    <!-- SALARY REPORT -->
+
+    <div class="salary-report">
+
+        <h3>Salary Breakdown</h3>
+
+        <div class="salary-row">
+
+            <span>Total Paid</span>
+
+            <strong>₹12,50,000</strong>
+
+        </div>
+
+        <div class="salary-row">
+
+            <span>Pending Salary</span>
+
+            <strong>₹80,000</strong>
+
+        </div>
+
+        <div class="salary-row">
+
+            <span>Bonus</span>
+
+            <strong>₹1,40,000</strong>
+
+        </div>
+
+    </div>
+
+    <!-- DOWNLOADS -->
+
+    <div class="downloads">
+
+        <h3>Download Reports</h3>
+
+        <button>Employee Report</button>
+
+        <button>Attendance Report</button>
+
+        <button>Salary Report</button>
+
+        <button>Department Report</button>
+
+    </div>
+
+</div>

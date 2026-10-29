@@ -1,0 +1,254 @@
+<!-- =========================
+     PAGE HEADER
+========================= -->
+
+<div class="page-header">
+
+  <div>
+    <h2>Employees</h2>
+    <p>Dashboard / Employees / Employee List</p>
+  </div>
+
+  
+
+</div>
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="stats-grid">
+
+  <div class="stat-card blue">
+    <h3>Total Employees</h3>
+    <h1>{{ totalEmployees }}</h1>
+    <p>Company Employees</p>
+  </div>
+
+  <div class="stat-card green">
+    <h3>Active</h3>
+    <h1>{{ activeEmployees }}</h1>
+    <p>Currently Working</p>
+  </div>
+
+  <div class="stat-card orange">
+    <h3>On Leave</h3>
+    <h1>{{ leaveEmployees }}</h1>
+    <p>Approved Leave</p>
+  </div>
+
+  <div class="stat-card red">
+    <h3>Inactive</h3>
+    <h1>{{ inactiveEmployees }}</h1>
+    <p>Not Working</p>
+  </div>
+
+</div>
+
+<!-- =========================
+     FILTER TOOLBAR
+========================= -->
+
+<div class="toolbar">
+
+  <input
+    type="text"
+    placeholder="Search Employee..."
+    [(ngModel)]="searchText">
+
+  <select [(ngModel)]="selectedDepartment">
+    <option value="">All Departments</option>
+    <option>IT</option>
+    <option>HR</option>
+    <option>Finance</option>
+    <option>Marketing</option>
+    <option>Sales</option>
+    <option>Operations</option>
+    <option>Customer Support</option>
+  </select>
+
+  <select [(ngModel)]="selectedStatus">
+    <option value="">All Status</option>
+    <option>Active</option>
+    <option>Leave</option>
+    <option>Inactive</option>
+  </select>
+
+  <button
+    class="reset-btn"
+    (click)="resetFilters()">
+    Reset
+  </button>
+
+  <button class="export-btn">
+    Export
+  </button>
+
+</div>
+
+<!-- =========================
+     ADD EMPLOYEE
+========================= -->
+
+<div class="employee-form">
+
+  <h3>Add New Employee</h3>
+
+  <div class="form-grid">
+
+    <input
+      type="number"
+      placeholder="Employee ID"
+      [(ngModel)]="newEmployee.id">
+
+    <input
+      type="text"
+      placeholder="Employee Name"
+      [(ngModel)]="newEmployee.name">
+
+    <input
+      type="text"
+      placeholder="Department"
+      [(ngModel)]="newEmployee.department">
+
+    <input
+      type="text"
+      placeholder="Designation"
+      [(ngModel)]="newEmployee.designation">
+
+    <input
+      type="email"
+      placeholder="Email"
+      [(ngModel)]="newEmployee.email">
+
+    <input
+      type="text"
+      placeholder="Phone"
+      [(ngModel)]="newEmployee.phone">
+
+    <select [(ngModel)]="newEmployee.status">
+
+      <option value="Active">Active</option>
+      <option value="Leave">Leave</option>
+      <option value="Inactive">Inactive</option>
+
+    </select>
+
+    <input
+      type="date"
+      [(ngModel)]="newEmployee.joinDate">
+
+    
+    <button
+      type="button"
+      (click)="addEmployee()">
+      Add Employee
+    </button>
+
+  </div>
+
+</div>
+
+<!-- =========================
+     EMPLOYEE TABLE
+========================= -->
+
+<div class="table-card">
+
+  <div class="table-responsive">
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>ID</th>
+          <th>Employee</th>
+          <th>Department</th>
+          <th>Designation</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Status</th>
+          <th>Join Date</th>
+          <th>Action</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let emp of employees; let i = index">
+
+          <td>{{ emp.id }}</td>
+
+          <td>
+
+            <div class="emp-info">
+
+              
+
+              <div>
+
+                <strong>{{ emp.name }}</strong>
+
+              </div>
+
+            </div>
+
+          </td>
+
+          <td>{{ emp.department }}</td>
+
+          <td>{{ emp.designation }}</td>
+
+          <td>{{ emp.email }}</td>
+
+          <td>{{ emp.phone }}</td>
+
+          <td>
+
+            <span
+              [ngClass]="{
+                active: emp.status === 'Active',
+                leave: emp.status === 'Leave',
+                inactive: emp.status === 'Inactive'
+              }">
+
+              {{ emp.status }}
+
+            </span>
+
+          </td>
+
+          <td>{{ emp.joinDate }}</td>
+
+          <td>
+
+            <button class="view">
+              👁
+            </button>
+
+            <button class="edit">
+              ✏
+            </button>
+
+            <button
+              class="delete"
+              (click)="deleteEmployee(i)">
+              🗑
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+

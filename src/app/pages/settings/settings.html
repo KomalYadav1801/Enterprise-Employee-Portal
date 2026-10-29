@@ -1,0 +1,82 @@
+<div class="settings-container">
+
+    <h2>⚙️ Application Settings</h2>
+
+    <div class="setting-row">
+
+        <label>🌙 Dark Mode</label>
+
+        <input
+        type="checkbox"
+        [(ngModel)]="isDarkMode"
+        (change)="toggleTheme()">
+
+    </div>
+
+    <div class="setting-row">
+
+        <label>🔔 Notifications</label>
+
+        <input
+        type="checkbox"
+        [(ngModel)]="notifications">
+
+    </div>
+
+    <div class="setting-row">
+
+        <label>📧 Email Alerts</label>
+
+        <input
+        type="checkbox"
+        [(ngModel)]="emailAlerts">
+
+    </div>
+
+    <div class="setting-row">
+
+        <label>💾 Auto Backup</label>
+
+        <input
+        type="checkbox"
+        [(ngModel)]="autoBackup">
+
+    </div>
+
+    <div class="setting-row">
+
+        <label>🌍 Language</label>
+
+        <select
+        [(ngModel)]="selectedLanguage"
+        (change)="changeLanguage()">
+
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="mr">मराठी</option>
+
+        </select>
+
+    </div>
+
+    <button (click)="saveSettings()">
+        Save Settings
+    </button>
+
+    <div class="preview">
+
+        <h3>Current Settings</h3>
+
+        <p>Dark Mode : {{isDarkMode}}</p>
+
+        <p>Notifications : {{notifications}}</p>
+
+        <p>Email Alerts : {{emailAlerts}}</p>
+
+        <p>Auto Backup : {{autoBackup}}</p>
+
+        <p>Language : {{selectedLanguage}}</p>
+
+    </div>
+
+</div>

@@ -1,0 +1,167 @@
+<div class="container">
+
+    <div class="header">
+        <h1>Add Employee</h1>
+        <p>Fill in the employee details below.</p>
+    </div>
+
+    <form (ngSubmit)="saveEmployee()">
+
+        <div class="row">
+
+            <div class="input-box">
+                <label>Employee ID</label>
+                <input
+                    type="text"
+                    name="employeeId"
+                    [(ngModel)]="employee.employeeId"
+                    placeholder="EMP001">
+            </div>
+
+            <div class="input-box">
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    name="fullName"
+                    [(ngModel)]="employee.fullName"
+                    placeholder="Rahul Sharma">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="input-box">
+                <label>Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    [(ngModel)]="employee.email"
+                    placeholder="rahul@gmail.com">
+            </div>
+
+            <div class="input-box">
+                <label>Phone</label>
+                <input
+                    type="text"
+                    name="phone"
+                    [(ngModel)]="employee.phone"
+                    placeholder="+91 9876543210">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="input-box">
+                <label>Department</label>
+
+                <select
+                    name="department"
+                    [(ngModel)]="employee.department">
+
+                    <option value="">Select Department</option>
+                    <option>IT</option>
+                    <option>HR</option>
+                    <option>Finance</option>
+                    <option>Marketing</option>
+                    <option>Sales</option>
+
+                </select>
+
+            </div>
+
+            <div class="input-box">
+                <label>Designation</label>
+                <input
+                    type="text"
+                    name="designation"
+                    [(ngModel)]="employee.designation"
+                    placeholder="Software Engineer">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="input-box">
+                <label>Salary</label>
+                <input
+                    type="number"
+                    name="salary"
+                    [(ngModel)]="employee.salary"
+                    placeholder="50000">
+            </div>
+
+            <div class="input-box">
+                <label>Joining Date</label>
+                <input
+                    type="date"
+                    name="joiningDate"
+                    [(ngModel)]="employee.joiningDate">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="input-box">
+                <label>Gender</label>
+
+                <select
+                    name="gender"
+                    [(ngModel)]="employee.gender">
+
+                    <option value="">Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+
+                </select>
+
+            </div>
+
+            <div class="input-box">
+                <label>Profile Photo</label>
+                <input type="file">
+            </div>
+
+        </div>
+
+        <div class="input-box">
+
+            <label>Address</label>
+
+            <textarea
+                rows="4"
+                name="address"
+                [(ngModel)]="employee.address"
+                placeholder="Enter Address">
+            </textarea>
+
+        </div>
+
+        <div class="buttons">
+
+            <button
+                type="button"
+                class="reset-btn"
+                (click)="resetForm()">
+
+                Reset
+
+            </button>
+
+            <button
+                type="submit"
+                class="save-btn">
+
+                Save Employee
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

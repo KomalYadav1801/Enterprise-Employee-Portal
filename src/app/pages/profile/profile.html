@@ -1,0 +1,375 @@
+<div class="profile-page">
+
+  <!-- ===========================
+       PROFILE HEADER
+  ============================ -->
+
+  <div class="profile-header">
+
+    <div class="profile-left">
+
+            <div class="employee-details">
+
+        <h2>Komal Yadav</h2>
+
+        <p class="role">
+          Angular Developer
+        </p>
+
+        <div class="badges">
+
+          <span class="badge blue">
+            EMP-9
+          </span>
+
+          <span class="badge green">
+            ● Active
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="profile-progress">
+
+      <h3>Profile Completion</h3>
+
+      <div class="progress">
+
+        <div
+          class="progress-bar"
+          [style.width.%]="completion">
+        </div>
+
+      </div>
+
+      <span>{{completion}}%</span>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ===========================
+      PERSONAL INFORMATION
+  ============================ -->
+
+  <form
+    [formGroup]="profileForm"
+    class="profile-form">
+
+    <div class="section">
+
+      <h3>
+        👤 Personal Information
+      </h3>
+
+      <div class="grid">
+
+        <div class="field">
+
+          <label>Full Name</label>
+
+          <input
+            type="text"
+            formControlName="fullName">
+
+        </div>
+
+        <div class="field">
+
+          <label>Email</label>
+
+          <input
+            type="email"
+            formControlName="email">
+
+        </div>
+
+        <div class="field">
+
+          <label>Phone</label>
+
+          <input
+            type="text"
+            formControlName="phone">
+
+        </div>
+
+        <div class="field">
+
+          <label>Date of Birth</label>
+
+          <input
+            type="date"
+            formControlName="dob">
+
+        </div>
+
+        <div class="field">
+
+          <label>Gender</label>
+
+          <select formControlName="gender">
+
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+
+          </select>
+
+        </div>
+
+        <div class="field">
+
+          <label>Address</label>
+
+          <textarea
+            rows="3"
+            formControlName="address">
+          </textarea>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ===========================
+        COMPANY INFORMATION
+    ============================ -->
+
+    <div class="section">
+
+      <h3>
+        🏢 Company Information
+      </h3>
+
+      <div class="grid">
+
+        <div class="field">
+
+          <label>Employee ID</label>
+
+          <input
+            type="text"
+            formControlName="employeeId">
+
+        </div>
+
+        <div class="field">
+
+          <label>Department</label>
+
+          <input
+            type="text"
+            formControlName="department">
+
+        </div>
+
+        <div class="field">
+
+          <label>Designation</label>
+
+          <input
+            type="text"
+            formControlName="designation">
+
+        </div>
+
+        <div class="field">
+
+          <label>Manager</label>
+
+          <input
+            type="text"
+            formControlName="manager">
+
+        </div>
+
+        <div class="field">
+
+          <label>Joining Date</label>
+
+          <input
+            type="date"
+            formControlName="joiningDate">
+
+        </div>
+
+        <div class="field">
+
+          <label>Employment Type</label>
+
+          <select formControlName="employmentType">
+
+            <option>Full Time</option>
+            <option>Part Time</option>
+            <option>Intern</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ===========================
+        EMERGENCY CONTACT
+    ============================ -->
+
+    <div class="section">
+
+      <h3>
+        🚨 Emergency Contact
+      </h3>
+
+      <div class="grid">
+
+        <div class="field">
+
+          <label>Name</label>
+
+          <input
+            type="text"
+            formControlName="emergencyName">
+
+        </div>
+
+        <div class="field">
+
+          <label>Relation</label>
+
+          <input
+            type="text"
+            formControlName="relation">
+
+        </div>
+
+        <div class="field">
+
+          <label>Phone</label>
+
+          <input
+            type="text"
+            formControlName="emergencyPhone">
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ===========================
+        SKILLS
+    ============================ -->
+
+    <div class="section">
+
+      <h3>
+        💻 Skills
+      </h3>
+
+      <div class="skills">
+
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        
+        <span>Bootstrap</span>
+        <span>Jquery</span>
+        <span>Sql</span>
+        
+        <span>Angular</span>
+        <span>Agile</span>
+
+        <span>Core Java</span>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ===========================
+        ACCOUNT
+    ============================ -->
+
+    <div class="section">
+
+      <h3>
+        🔒 Account Settings
+      </h3>
+
+      <div class="account-box">
+
+        <div>
+
+          <strong>Last Login</strong>
+
+          <p>24 July 2026 | 09:15 AM</p>
+
+        </div>
+
+        <div>
+
+          <strong>Status</strong>
+
+          <p class="active">
+            Active
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ===========================
+         BUTTONS
+    ============================ -->
+
+    <div class="buttons">
+
+      <button
+        class="save"
+        type="button"
+        (click)="saveProfile()">
+
+        💾 Save Profile
+
+      </button>
+
+      <button
+        class="edit"
+        type="button">
+
+        ✏ Edit
+
+      </button>
+
+      <button
+        class="cancel"
+        type="reset">
+
+        ❌ Cancel
+
+      </button>
+
+    </div>
+
+  </form>
+
+</div>

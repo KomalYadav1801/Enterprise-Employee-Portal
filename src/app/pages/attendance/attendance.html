@@ -1,0 +1,181 @@
+<div class="page-header">
+  <h2>Attendance Management</h2>
+  <p class="subtitle">Track daily employee attendance and leave status</p>
+</div>
+
+<div class="toast" *ngIf="message" [ngClass]="messageType">
+  {{ message }}
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-icon">📋</div>
+    <div>
+      <div class="stat-value">{{ totalRecords }}</div>
+      <div class="stat-label">Total Records</div>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-icon present-icon">✅</div>
+    <div>
+      <div class="stat-value">{{ presentCount }}</div>
+      <div class="stat-label">Present</div>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-icon absent-icon">❌</div>
+    <div>
+      <div class="stat-value">{{ absentCount }}</div>
+      <div class="stat-label">Absent</div>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-icon leave-icon">🌴</div>
+    <div>
+      <div class="stat-value">{{ leaveCount }}</div>
+      <div class="stat-label">On Leave</div>
+    </div>
+  </div>
+
+  <div class="stat-card highlight">
+    <div class="stat-icon">📊</div>
+    <div>
+      <div class="stat-value">{{ attendanceRate }}</div>
+      <div class="stat-label">Attendance Rate</div>
+    </div>
+  </div>
+</div>
+
+<!-- Add form -->
+<div class="form">
+
+  <input
+    type="text"
+    placeholder="Employee Name"
+    [(ngModel)]="newRecord.employee">
+
+  <input
+    type="date"
+    [(ngModel)]="newRecord.date">
+
+  <select [(ngModel)]="newRecord.status">
+    <option>Present</option>
+    <option>Absent</option>
+    <option>Leave</option>
+  </select>
+
+  <button (click)="addRecord()">
+    + Add Record
+  </button>
+
+</div>
+
+<!-- Search & filter -->
+<div class="filter-bar">
+  <input
+    type="text"
+    class="search-input"
+    placeholder="🔍 Search by employee, date or ID..."
+    [(ngModel)]="searchTerm">
+
+  <select [(ngModel)]="statusFilter" class="status-filter">
+    <option value="All">All Status</option>
+    <option value="Present">Present</option>
+    <option value="Absent">Absent</option>
+    <option value="Leave">Leave</option>
+  </select>
+</div>
+
+<table *ngIf="records.length > 0">
+
+  <thead>
+    <tr>
+      <th (click)="sortBy('id')">
+        ID <span class="sort-arrow" *ngIf="sortKey === 'id'">{{ sortAsc ? '▲' : '▼' }}</span>
+      </th>
+      <th (click)="sortBy('employee')">
+        Employee <span class="sort-arrow" *ngIf="sortKey === 'employee'">{{ sortAsc ? '▲' : '▼' }}</span>
+      </th>
+      <th (click)="sortBy('date')">
+        Date <span class="sort-arrow" *ngIf="sortKey === 'date'">{{ sortAsc ? '▲' : '▼' }}</span>
+      </th>
+      <th (click)="sortBy('status')">
+        Status <span class="sort-arrow" *ngIf="sortKey === 'status'">{{ sortAsc ? '▲' : '▼' }}</span>
+      </th>
+      <th class="action-col">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let item of filteredRecords">
+
+      <ng-container *ngIf="editingId !== item.id; else editRow">
+
+        <td>#{{ item.id }}</td>
+        <td>{{ item.employee }}</td>
+        <td>{{ item.date }}</td>
+
+        <td>
+          <span class="badge"
+            [class.present]="item.status==='Present'"
+            [class.absent]="item.status==='Absent'"
+            [class.leave]="item.status==='Leave'">
+            {{ item.status }}
+          </span>
+        </td>
+
+        <td class="actions">
+          <ng-container *ngIf="deleteCandidateId !== item.id; else confirmRow">
+            <button class="edit" (click)="startEdit(item)">Edit</button>
+            <button class="delete" (click)="confirmDelete(item.id)">Delete</button>
+          </ng-container>
+
+          <ng-template #confirmRow>
+            <span class="confirm-text">Delete this record?</span>
+            <button class="confirm-yes" (click)="deleteRecord(item.id)">Yes</button>
+            <button class="confirm-no" (click)="cancelDelete()">Cancel</button>
+          </ng-template>
+        </td>
+
+      </ng-container>
+
+      <ng-template #editRow>
+        <td>#{{ item.id }}</td>
+        <td>
+          <input type="text" [(ngModel)]="editBuffer.employee" class="edit-input">
+        </td>
+        <td>
+          <input type="date" [(ngModel)]="editBuffer.date" class="edit-input">
+        </td>
+        <td>
+          <select [(ngModel)]="editBuffer.status" class="edit-input">
+            <option>Present</option>
+            <option>Absent</option>
+            <option>Leave</option>
+          </select>
+        </td>
+        <td class="actions">
+          <button class="save" (click)="saveEdit()">Save</button>
+          <button class="cancel" (click)="cancelEdit()">Cancel</button>
+        </td>
+      </ng-template>
+
+    </tr>
+
+    <tr *ngIf="filteredRecords.length === 0">
+      <td colspan="5" class="no-results">No attendance records match your search.</td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+<div class="empty" *ngIf="records.length === 0">
+  <div class="empty-icon">📅</div>
+  No Attendance Records Available
+</div>

@@ -1,0 +1,94 @@
+<div class="register-page">
+
+    <!-- LEFT SIDE -->
+    <div class="left-side">
+
+        <h1>Enterprise Employee Portal</h1>
+
+        <p>
+            Create your employee account to access attendance,
+            payroll, departments, reports and enterprise analytics
+            from one secure platform.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                <span>✔</span>
+                <p>Employee Management</p>
+            </div>
+
+            <div class="feature">
+                <span>✔</span>
+                <p>Attendance Tracking</p>
+            </div>
+
+            <div class="feature">
+                <span>✔</span>
+                <p>Payroll & Salary</p>
+            </div>
+
+            <div class="feature">
+                <span>✔</span>
+                <p>Reports & Analytics</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="register-card">
+
+        <img
+            src="logo.png"
+            class="login-logo"
+            alt="Komal Enterprises">
+
+        <h2>REGISTER</h2>
+
+        <p class="subtitle">
+            Create your enterprise account
+        </p>
+
+        <div class="input-box">
+            <label>Full Name</label>
+            <input
+                type="text"
+                placeholder="Enter your full name"
+                [(ngModel)]="name">
+        </div>
+
+        <div class="input-box">
+            <label>Email</label>
+            <input
+                type="email"
+                placeholder="Enter your email"
+                [(ngModel)]="email">
+        </div>
+
+        <div class="input-box">
+            <label>Password</label>
+            <input
+                type="password"
+                placeholder="Enter your password"
+                [(ngModel)]="password">
+        </div>
+
+        <button class="register-btn" (click)="register()">
+            REGISTER
+        </button>
+
+        <hr>
+
+        <button class="login-btn" (click)="goToLogin()">
+            LOGIN
+        </button>
+
+        <p class="footer-text">
+            © 2026 Komal Enterprises
+        </p>
+
+    </div>
+
+</div>

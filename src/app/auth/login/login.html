@@ -1,0 +1,109 @@
+<div class="login-page">
+
+    <!-- LEFT SIDE -->
+
+    <div class="login-left">
+
+        <span class="tag">
+            Enterprise Employee Management
+        </span>
+
+        <h1>
+            Welcome to
+            <span>Komal Enterprises</span>
+        </h1>
+
+        <h3 class="sub-heading">
+            Enterprise Employee Management System
+        </h3>
+
+        <p>
+            Manage employees, attendance, payroll,
+            departments, reports and business operations
+            through one secure enterprise platform.
+        </p>
+
+        <div class="features">
+
+            <div>✔ Employee Management</div>
+
+            <div>✔ Attendance Tracking</div>
+
+            <div>✔ Payroll System</div>
+
+            <div>✔ Analytics Dashboard</div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="login-card">
+
+        <!-- LOGO -->
+
+        <img
+            src="logo.png"
+            class="login-logo"
+            alt="Komal Enterprises">
+
+        <h1>LOGIN</h1>
+
+        <p class="subtitle">
+            Sign in to continue
+        </p>
+
+        <div class="input-box">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                placeholder="Enter your email"
+                [(ngModel)]="email">
+
+        </div>
+
+        <div class="input-box">
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                placeholder="Enter your password"
+                [(ngModel)]="password">
+
+        </div>
+
+        <a class="forgot">
+            Forgot Password?
+        </a>
+
+        <button
+            class="login-btn"
+            (click)="login()">
+
+            LOGIN
+
+        </button>
+
+        <hr>
+
+        <button
+            class="register-btn"
+            (click)="goToRegister()">
+
+            CREATE ACCOUNT
+
+        </button>
+
+        <p class="footer-text">
+            © 2026 Komal Enterprises
+        </p>
+
+    </div>
+
+</div>
